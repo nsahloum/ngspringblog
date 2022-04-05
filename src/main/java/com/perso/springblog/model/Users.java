@@ -1,5 +1,7 @@
 package com.perso.springblog.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,10 +9,12 @@ import javax.persistence.*;
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id;
     @Column
     private String userName;
     @Column
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @Column
     private String email;
