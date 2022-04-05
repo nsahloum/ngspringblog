@@ -1,7 +1,8 @@
 package com.perso.springblog.controller;
 
+import com.perso.springblog.dto.LogInRequest;
 import com.perso.springblog.dto.RegisterRequest;
-import com.perso.springblog.model.Users;
+import com.perso.springblog.model.User;
 import com.perso.springblog.service.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,13 @@ public class AuthController {
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.OK)
-    public Users signup(@RequestBody RegisterRequest registerRequest) {
+    public User signup(@RequestBody RegisterRequest registerRequest) {
         return authService.signup(registerRequest);
+    }
+
+    @PostMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
+    public String login(@RequestBody LogInRequest logInRequest) {
+        return authService.login(logInRequest);
     }
 }
