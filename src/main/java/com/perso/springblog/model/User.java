@@ -1,7 +1,5 @@
 package com.perso.springblog.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 
 @Entity

@@ -20,7 +20,7 @@ public class JwtProvider {
         key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     }
 
-    public String generateToken(Authentication authentication){
+    public String generateToken(Authentication authentication) {
         User principal = (User) authentication.getPrincipal();
         return Jwts.builder()
                 .setSubject(principal.getUsername())
